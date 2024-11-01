@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
@@ -38,5 +39,6 @@ def success():
     return "Deactivation choices have been saved!"
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))  # Default port is 10000 if not set
+    app.run(host="0.0.0.0", port=port)
