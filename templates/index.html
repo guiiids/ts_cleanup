@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deactivate Agents</title>
+</head>
+<body>
+    <h1>Select Agents to Deactivate</h1>
+    <form method="POST">
+        <table border="1">
+            <tr>
+                <th>Agent</th>
+                <th>Deactivate?</th>
+            </tr>
+            {% for agent in agents %}
+            <tr>
+                <td>{{ agent }}</td>
+                <td>
+                    <label>
+                        <input type="radio" name="{{ agent }}" value="Yes"> Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="{{ agent }}" value="No" checked> No
+                    </label>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
