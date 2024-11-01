@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deactivation Results</title>
+</head>
+<body>
+    <h1>Deactivation Results</h1>
+
+    <h2>Accounts to be deactivated</h2>
+    <ul>
+        {% for agent, note in accounts_to_deactivate %}
+            <li>{{ agent }}{% if note %}, [Note: {{ note }}]{% endif %}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Accounts to be kept active</h2>
+    <ul>
+        {% for agent, note in accounts_to_keep_active %}
+            <li>{{ agent }}{% if note %}, [Note: {{ note }}]{% endif %}</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{{ url_for('index') }}">Back to form</a></p>
+</body>
+</html>
